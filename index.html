@@ -1,77 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JobsX By Sohail --Daily Job Links</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobsX - Your Job Links</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
+        /* === Global Styles === */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        body { 
+            min-height: 100vh; 
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
+            transition: background 0.5s;
+        }
+        body.light { 
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2); 
+        }
+        a { text-decoration: none; }
+
+        /* === Container === */
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+
+        /* === Logo / Profile === */
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 3px solid #fff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.4);
+        }
+        .logo img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* === Search Bar === */
+        .search-box {
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
 
-        h1 {
-            font-size: 28px;
+        /* === Category Tabs === */
+        .categories {
+            display: flex;
+            justify-content: space-around;
             margin-bottom: 20px;
-            letter-spacing: 1px;
+        }
+        .category {
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            transition: all 0.3s;
+        }
+        .category:hover, .category.active {
+            background: #fff;
+            color: #203a43;
         }
 
-        .link-btn {
+        /* === Job Cards === */
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            color: #fff;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card a {
+            color: inherit;
             display: block;
-            margin: 12px auto;
-            padding: 14px 20px;
-            width: 90%;
-            max-width: 350px;
-            background: #222;
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 18px;
-            border: 1px solid #444;
-            transition: 0.3s;
         }
 
-        .link-btn:hover {
-            background: #333;
-            transform: scale(1.03);
+        /* === Gradient Buttons === */
+        .card a {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5, #42e695);
+            background-size: 300% 300%;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+            animation: gradient 3s ease infinite;
+        }
+        @keyframes gradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        .card a:hover {
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+            transform: scale(1.05);
         }
 
-        .footer {
-            margin-top: 40px;
-            font-size: 14px;
-            opacity: 0.7;
+        /* === Daily Update Box === */
+        .daily-update {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            padding: 15px 20px;
+            border-radius: 20px;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* === Theme Toggle === */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover { background: rgba(255,255,255,0.4); }
+
+        /* === Mobile Optimized === */
+        @media(max-width: 600px){
+            .categories { flex-wrap: wrap; gap: 10px; }
+            .category { flex: 1 1 45%; text-align: center; }
         }
     </style>
 </head>
-
 <body>
-    <h1>📌 JobsX By Sohail– Daily Job Updates</h1>
 
-    <!-- ⭐ Add your job links below -->
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">🌙</div>
 
-    <a class="link-btn" href="https://www.naukri.com/" target="_blank">Naukri – Latest Jobs</a>
+    <div class="container">
 
-    <a class="link-btn" href="https://www.linkedin.com/jobs/" target="_blank">LinkedIn – Job Search</a>
+        <!-- Logo / Profile -->
+        <div class="logo">
+            <img src="https://via.placeholder.com/150" alt="Logo">
+        </div>
 
-    <a class="link-btn" href="https://tspsc.gov.in" target="_blank">TSPSC – Notifications</a>
+        <!-- Daily Job Update -->
+        <div class="daily-update" id="dailyUpdate">
+            🔥 Today's Jobs: TCS Off-Campus, Infosys Drive, Govt Job Notification
+        </div>
 
-    <a class="link-btn" href="https://jobs.google.com" target="_blank">Google Careers</a>
+        <!-- Search -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search jobs...">
+        </div>
 
-    <a class="link-btn" href="https://www.tcs.com/careers" target="_blank">TCS Careers</a>
+        <!-- Categories -->
+        <div class="categories">
+            <div class="category active" data-cat="all">All</div>
+            <div class="category" data-cat="govt">Govt</div>
+            <div class="category" data-cat="it">IT</div>
+            <div class="category" data-cat="internship">Internship</div>
+            <div class="category" data-cat="courses">Courses</div>
+            <div class="category" data-cat="exams">Exams</div>
+        </div>
 
-    <a class="link-btn" href="https://www.ibm.com/careers" target="_blank">IBM Careers</a>
+        <!-- Job Cards -->
+        <div class="cards" id="jobCards">
+            <!-- Sample cards -->
+            <div class="card" data-cat="it"><a href="#">TCS Off-Campus 2025</a></div>
+            <div class="card" data-cat="it"><a href="#">Infosys Drive 2025</a></div>
+            <div class="card" data-cat="govt"><a href="#">SSC Govt Jobs 2025</a></div>
+            <div class="card" data-cat="internship"><a href="#">Google Internship 2025</a></div>
+            <div class="card" data-cat="courses"><a href="#">Free Coding Course</a></div>
+            <div class="card" data-cat="exams"><a href="#">TSPSC Group 2 Exam</a></div>
+        </div>
 
-    <!-- ⭐ Add more links as needed -->
-
-    <div class="footer">
-        Made by Sohail • JobsX © 2025
     </div>
+
+    <!-- Scripts -->
+    <script>
+        // === Theme Toggle ===
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light');
+            themeToggle.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
+        });
+
+        // === Search Filter ===
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', () => {
+            const term = searchInput.value.toLowerCase();
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.display = card.textContent.toLowerCase().includes(term) ? 'block' : 'none';
+            });
+        });
+
+        // === Category Filter ===
+        const categories = document.querySelectorAll('.category');
+        const cards = document.querySelectorAll('.card');
+        categories.forEach(cat => {
+            cat.addEventListener('click', () => {
+                categories.forEach(c => c.classList.remove('active'));
+                cat.classList.add('active');
+                const selected = cat.dataset.cat;
+                cards.forEach(card => {
+                    if(selected === 'all' || card.dataset.cat === selected){
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // === Fade-in Animation ===
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, i) => {
+                setTimeout(() => card.classList.add('show'), i * 150);
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
