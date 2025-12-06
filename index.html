@@ -1,73 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Career Hub </title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs Updates - Daily Links</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+    }
+
+    .header {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 18px;
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+
+    .section-title {
+        margin: 20px auto 10px;
+        width: 90%;
+        font-size: 20px;
+        font-weight: bold;
+        color: #222;
+    }
+
+    .card {
+        width: 90%;
+        background: #fff;
+        padding: 15px;
+        margin: 10px auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #0077ff;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .card small {
+        color: gray;
+        display: block;
+        margin-top: 5px;
+    }
+</style>
+
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to Resource Hub</h1>
-        <nav>
-            <ul>
-                <li><a href="#jobs">Jobs</a></li>
-                <li><a href="#pdfs">PDFs</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#youtube">YouTube</a></li>
-                <li><a href="#instagram">Instagram</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="header">📢 Daily Job Updates</div>
 
-    <main>
-        <section id="jobs">
-            <h2>Jobs</h2>
-            <div id="jobs-list">
-                <!-- Job links will appear here -->
-            </div>
-            <button onclick="addJobLink()">Add Job Link</button>
-        </section>
+<!-- Automatic Date -->
+<div class="section-title" id="todayDate"></div>
 
-        <section id="pdfs">
-            <h2>PDFs</h2>
-            <div id="pdfs-list">
-                <!-- PDF links will appear here -->
-            </div>
-            <button onclick="addPdfLink()">Add PDF Link</button>
-        </section>
+<!-- JOB UPDATES -->
+<div class="section-title">🔹 Job Updates</div>
 
-        <section id="courses">
-            <h2>Courses</h2>
-            <div id="courses-list">
-                <!-- Course links will appear here -->
-            </div>
-            <button onclick="addCourseLink()">Add Course Link</button>
-        </section>
+<div class="card">
+    <a href="#">TSPSC New Notification – Direct Link</a>
+    <small>Updated today</small>
+</div>
 
-        <section id="youtube">
-            <h2>YouTube</h2>
-            <div id="youtube-list">
-                <!-- YouTube links will appear here -->
-            </div>
-            <button onclick="addYouTubeLink()">Add YouTube Link</button>
-        </section>
+<div class="card">
+    <a href="#">Central Govt Jobs – Daily List</a>
+    <small>Updated today</small>
+</div>
 
-        <section id="instagram">
-            <h2>Instagram</h2>
-            <div id="instagram-list">
-                <!-- Instagram links will appear here -->
-            </div>
-            <button onclick="addInstagramLink()">Add Instagram Link</button>
-        </section>
-    </main>
+<!-- COURSES -->
+<div class="section-title">🎓 Courses</div>
 
-    <footer>
-        <p>&copy; 2025 Resource Hub. All rights reserved.</p>
-    </footer>
+<div class="card">
+    <a href="#">Free Python Full Course (YouTube)</a>
+</div>
 
-    <script src="script.js"></script>
+<div class="card">
+    <a href="#">AWS Cloud Beginner Course</a>
+</div>
+
+<!-- PDF MATERIAL -->
+<div class="section-title">📄 PDF Materials</div>
+
+<div class="card">
+    <a href="#">Aptitude PDF (Free Download)</a>
+</div>
+
+<div class="card">
+    <a href="#">General Awareness 2025 PDF</a>
+</div>
+
+<!-- OTHER LINKS -->
+<div class="section-title">📚 Study Materials</div>
+
+<div class="card">
+    <a href="#">Interview Notes</a>
+</div>
+
+<div class="card">
+    <a href="#">Daily Current Affairs</a>
+</div>
+
+<script>
+    // Auto Date
+    document.getElementById("todayDate").innerHTML =
+        "📅 Today: " + new Date().toLocaleDateString();
+</script>
+
 </body>
 </html>
