@@ -1,117 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jobs Updates - Daily Links</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Links - Sohail</title>
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background:blue;
-    }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+        }
 
-    .header {
-        background: #000;
-        color: #fff;
-        text-align: center;
-        padding: 18px;
-        font-size: 22px;
-        letter-spacing: 1px;
-    }
+        header {
+            background: #2d3436;
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
 
-    .section-title {
-        margin: 20px auto 10px;
-        width: 90%;
-        font-size: 20px;
-        font-weight: bold;
-        color: #222;
-    }
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-    .card {
-        width: 90%;
-        background: #fff;
-        padding: 15px;
-        margin: 10px auto;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 22px;
+            color: #2d3436;
+        }
 
-    .card a {
-        text-decoration: none;
-        color: #0077ff;
-        font-size: 17px;
-        font-weight: bold;
-    }
+        .job-links a {
+            display: block;
+            text-decoration: none;
+            background: #0984e3;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
 
-    .card small {
-        color: gray;
-        display: block;
-        margin-top: 5px;
-    }
-</style>
+        .job-links a:hover {
+            background: #74b9ff;
+            transform: scale(1.03);
+        }
 
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            color: #636e72;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="header">📢 Daily Job Updates</div>
+    <header>🔥 Job Links – Daily Updates</header>
 
-<!-- Automatic Date -->
-<div class="section-title" id="todayDate"></div>
+    <div class="container">
+        <h2>Latest Opportunities</h2>
 
-<!-- JOB UPDATES -->
-<div class="section-title">🔹 Job Updates</div>
+        <div class="job-links">
 
-<div class="card">
-    <a href="#">TSPSC New Notification – Direct Link</a>
-    <small>Updated today</small>
-</div>
+            <a href="https://www.accenture.com" target="_blank">Accenture – Apply Now</a>
 
-<div class="card">
-    <a href="#">Central Govt Jobs – Daily List</a>
-    <small>Updated today</small>
-</div>
+            <a href="https://www.careers.google.com" target="_blank">Google Careers</a>
 
-<!-- COURSES -->
-<div class="section-title">🎓 Courses</div>
+            <a href="https://www.tcs.com/careers" target="_blank">TCS Hiring</a>
 
-<div class="card">
-    <a href="#">Free Python Full Course (YouTube)</a>
-</div>
+            <a href="https://www.infosys.com/careers" target="_blank">Infosys Jobs</a>
 
-<div class="card">
-    <a href="#">AWS Cloud Beginner Course</a>
-</div>
+            <a href="https://www.wipro.com/careers" target="_blank">Wipro Recruitment</a>
 
-<!-- PDF MATERIAL -->
-<div class="section-title">📄 PDF Materials</div>
+            <a href="https://www.naukri.com" target="_blank">Naukri – Latest Jobs</a>
 
-<div class="card">
-    <a href="#">Aptitude PDF (Free Download)</a>
-</div>
+            <a href="https://www.linkedin.com/jobs" target="_blank">LinkedIn Jobs</a>
 
-<div class="card">
-    <a href="#">General Awareness 2025 PDF</a>
-</div>
+        </div>
+    </div>
 
-<!-- OTHER LINKS -->
-<div class="section-title">📚 Study Materials</div>
-
-<div class="card">
-    <a href="#">Interview Notes</a>
-</div>
-
-<div class="card">
-    <a href="#">Daily Current Affairs</a>
-</div>
-
-<script>
-    // Auto Date
-    document.getElementById("todayDate").innerHTML =
-        "📅 Today: " + new Date().toLocaleDateString();
-</script>
+    <footer>© 2025 Sohail - Job Updates</footer>
 
 </body>
 </html>
-
